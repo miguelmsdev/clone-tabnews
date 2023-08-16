@@ -25,7 +25,7 @@ function Home() {
             Thank you for loving me for who I am, I'll never let you down.
             <br /> {/* Line break here */}
             <br /> {/* Line break here */}
-            To you, from your lucky, needy boyfriend.
+            To you, from your lucky, needy boyfriend. ❤️
 
           </h1>
         </div>
