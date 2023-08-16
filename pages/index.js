@@ -7,9 +7,17 @@ function Home() {
             width: 50%; /* Default width for mobile devices */
           }
 
+          .message {
+            font-size: 19px; /* Default font size for mobile devices */
+            font-family: 'Pacifico';
+          }
+
           @media screen and (min-width: 768px) { /* Adjust the breakpoint as needed */
             .responsive-image {
               width: 30%; /* Width for larger screens like computers */
+            }
+            .message { /* Targeting the .message class */
+              font-size: 24px; /* Increase the font size on larger screens */
             }
           }
         `}
@@ -23,7 +31,7 @@ function Home() {
         />
       </div>
       <div style={{ padding: '10px 1px' }}> {/* Padding around the text */}
-        <h1 style={{ color: "#ffffff", fontSize: '19px', fontFamily: 'Pacifico', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}> {/* Font size set here */}
+        <h1 className="message" style={{ color: "#ffffff", textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}> {/* Font size set here */}
           Finding you was the second best event in my life, the best one is the present as long as we're both partners and we believe 100% we're soul mates, this is a simple message and also a result of my studies, which I didn't care about before I met you, you made me strive to be the person I've always wanted to become, and although there's still a long way to go, you've inspired me to come miles away from where I was.
           <br /> {/* Line break here */}
           <br /> {/* Line break here */}
