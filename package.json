@@ -4,7 +4,11 @@
   "description": "Implementação do https://tabnews.com.br para o https://curso.dev",
   "main": "index.js",
   "scripts": {
-    "dev": "rd /s /q .next && next dev",
+    "services:up": "docker compose -f infra/compose.yaml up -d",
+    "services:stop": "docker compose -f infra/compose.yaml stop",
+    "services:down": "docker compose -f infra/compose.yaml down",
+    "@comment dev": ["deletes the .next folder to clear the last server activity cache and starts the server"],
+    "dev": "npm run services:up && rd /s /q .next && next dev", 
     "build": "next build",
     "start": "next start",
     "dev-lan": "next dev -H 0.0.0.0",
