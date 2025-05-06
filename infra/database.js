@@ -1,19 +1,46 @@
-import { Client } from 'pg';
+import { Pool } from "pg";
 
-async function query(queryObject) {
-  const client = new Client({
-    host: process.env.POSTGRES_HOST,
-    port: process.env.POSTGRES_PORT,
-    user: process.env.POSTGRES_USER,
-    database: process.env.POSTGRES_DB,
-    password: process.env.POSTGRES_PASSWORD,
-  });
-  await client.connect();
-  const result = await client.query(queryObject);
-  await client.end();
-  return result;
+const pool = new Pool({
+  host: process.env.POSTGRES_HOST,
+  port: process.env.POSTGRES_PORT,
+  user: process.env.POSTGRES_USER,
+  database: process.env.POSTGRES_DB,
+  password: process.env.POSTGRES_PASSWORD,
+});
+
+async function query(queryText, params) {
+  try {
+    const result = await pool.query(queryText, params);
+    return result;
+  } catch (err) {
+    console.error("Error executing query", err);
+    throw err;
+  }
 }
 
-export default {
-  query: query,
-};
+export default { query };
+
+// import { Client } from "pg";
+
+// async function query(queryObject) {
+//   const client = new Client({
+//     host: process.env.POSTGRES_HOST,
+//     port: process.env.POSTGRES_PORT,
+//     user: process.env.POSTGRES_USER,
+//     database: process.env.POSTGRES_DB,
+//     password: process.env.POSTGRES_PASSWORD,
+//   });
+//   await client.connect();
+//   try {
+//     const result = await client.query(queryObject);
+//   } catch (err) {
+//     console.error("Error executing query", err);
+//   } finally {
+//     await client.end();
+//     return result;
+
+//     export default {
+//       query: query,
+//     };
+//   }
+// }
