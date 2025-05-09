@@ -20,6 +20,8 @@ async function query(queryText, params) {
 
 export default { query };
 
+//How a Client would look like instead of a Pool, having to manually terminate each connection with a finally block.
+
 // import { Client } from "pg";
 
 // async function query(queryObject) {
